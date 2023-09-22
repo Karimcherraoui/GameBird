@@ -1,89 +1,167 @@
-    *{
-    box-sizing: border-box;
-    }
-    
-    body {
-      background : url(./bg.jpg)no-repeat center center fixed;
-      background-size: cover;
-      display: flex;
-      z-index: -100;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 0;
-      margin: 0;
-      height: 100vh;
-      width: 100vw;
-    }
-    
-    .bg {
-      background-repeat: no-repeat;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .hole {
-      background: black;
-      border-radius: 50%;
-      overflow: visible;
-      width: 170px;
-      height: 170px;
-      border-color: orange;
-        border-style: solid;
-        border-width: 5px;
-    }
-    
-    .hole-container {
-      width: 25%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    
-    .mole {
-      position: relative;
-      /* right: 30px; */
-      width: 100%;
-      height: 100%;
-    }
-    
-    
-    
-    .gone {
-      display: none;
-    }
-    
-    .worm {
-      width: 1000px;
-      position: relative;
-    }
-    
-    .worm-container {
-      overflow: hidden;
-      
-      transition: width 0.5s ease-in-out;
-    }
-    
-    .worm-box {
-      display: flex;
-      justify-content: center;
-      width: 1660px;
-    }
-    
-    .win {
-      max-width: 100vw;
-      max-height: 100vh;
-      display: none;
-    }
-    
-    .hide {
-      display: none;
-    }
-    
-    .show {
-      display: block;
-    }
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: url(./assets/bg.jpg) no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  z-index: -100;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+  cursor: url(./assets/cursor.png), auto;
+}
+
+.bg {
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  inset: 0;
+
+}
+
+.hole {
+  background: black;
+  border-radius: 50%;
+  overflow: visible;
+  width: 170px;
+  height: 170px;
+  border-color: orange;
+  border-style: solid;
+  border-width: 5px;
+}
+
+.hole-container {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mole {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: url(./assets/cursor-worm.png), auto;
+}
+
+.statistique {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+  color: black;
+  background: orange;
+  width: 160px;
+  padding: 7px;
+  border-radius: 5px;
+}
+
+.winContainer{
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+}
+.timeContainer {
+  position: absolute;
+  left: 0;
+  margin-left: 20px;
+}
+.scoreContainer {
+  position: absolute;
+  right: 0;
+  margin-right: 20px;
+}
+
+.userScore{
+  background-color: orange !important;
+  color: red;
+  width: 300px; 
+  height: 550px;
+  border-radius: 20px;
+  opacity: 0.9;
+  margin-right: 50px;
+  text-align: center;
+ 
+}
+h1{
+  color: black;
+}
+
+.playContainer{
+  display: flex;
+  flex-direction: column;
+  
+}
+.play{
+  margin-top: 30px;
+  width: 250px;
+  height: 100px;
+  transition: all .2s ease;
+}
+.play:hover{
+  transform : scale(1.1);
+}
+
+
+
+#name{
+text-align: center;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  border:solid 4px orange;
+  
+}
+
+.labelName{
+  text-align: center;
+  font-size: x-large;
+  font-weight: 600;
+}
+
+.score{
+  text-align: center;
+}
+
+.gone {
+  display: none;
+}
+
+.worm {
+  width: 800px;
+  position: relative;
+}
+
+.worm-container {
+  overflow: hidden;
+
+  transition: width 0.5s ease-in-out;
+}
+
+.worm-box {
+  display: flex;
+  justify-content: center;
+  width: 1660px;
+}
+
+.win {
+  margin: auto;
+  width: 50%;
+  z-index: 2;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
