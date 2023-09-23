@@ -1,11 +1,15 @@
 const holeContainer = document.querySelector(".bg");
 const time = document.querySelector(".time");
 const score = document.querySelector(".score");
-const scoreUser = document.querySelector(".winContainer");
-const gameUser = JSON.parse(localStorage.getItem("Users"));
-// const userLength = (gameUser.length) ;
-// console.log(gameUser[userLength]);
-// console.log(gameUser[userLength].name);
+const scoreUser = document.querySelector(".userScore");
+const gameUser = JSON.parse(localStorage.getItem("Names"));
+const userContainer = document.querySelector(".leaderBoard");
+const storedGameScore = localStorage.getItem("Scores");
+const gameScore = storedGameScore ? JSON.parse(storedGameScore) : [];
+const userLength = gameUser.length ;
+const winContainer = document.querySelector(".winContainer");
+
+
 
 let minute = 0;
 let seconds = 0;
@@ -26,7 +30,6 @@ let progressWorm = document.getElementById("WormProgress");
 let WormProgress = 5;
 let holeActive = [];
 
-console.log(progressWorm);
 
 function getIndexHole() {
   let indexHole = Math.floor(Math.random() * birdHole.length);
@@ -95,25 +98,25 @@ setInterval(()=>{
 
 const gameStart = setInterval(spawnbird, 1500);
 
-const imgWin = document.querySelector(".win");
 function updateScore(){
     WormProgress += 45;
     progressWorm.style.width = WormProgress + "%";
 
     if(WormProgress >= 100){
-        console.log("test");
         clearInterval(gameStart);
-        window.location.href = "win.html";
-
-        // holeContainer.classList.add("hide");
-        // imgWin.style.display = "block"
-
-        // let name = gameUser[userLength];
-        // const userContainer = document.createElement("div")
-        // userContainer.classList.add("userScore");
-        // userContainer.innerHTML = name + " :" + minute + "m " + seconds + "s"
-        // scoreUser.appendChild(userContainer);
-
+        holeContainer.style.display = "none";
+        winContainer.style.display = "grid";
+        gameScore.push(minute + "m " + seconds + "s");
+        localStorage.setItem("Scores", JSON.stringify(gameScore));
+       
+        for (let i = 0 ; i < userLength ; i++){
+          let name = gameUser[i];
+          let scores = gameScore [i];
+          const formattedUser = name + " : " + scores;
+          console.log(formattedUser);
+          // " :" + minute + "m " + seconds + "s"
+          userContainer.innerHTML += formattedUser + "<br>";
+        }
 
 }
 }
